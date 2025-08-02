@@ -13,6 +13,10 @@ class Solution:
            #     
 
        # return []
+
+
+       #Time complexity: O(n)
+    #memory complexity: O(n)
         visit = {}
         for i, num in enumerate(nums):
             diff = target - num
