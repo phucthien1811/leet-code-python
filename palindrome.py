@@ -1,20 +1,16 @@
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0:
-            return False  # Số âm không thể là palindrome
+        # Số âm không thể là palindrome, hoặc số tận cùng là 0 nhưng khác 0 (vd: 10)
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
 
-        div = 1
-        while x // div >= 10:
-            div *= 10
+        reversed_half = 0
+        while x > reversed_half:
+            reversed_half = reversed_half * 10 + x % 10
+            x = x // 10
 
-        while x:
-            left = x // div       # chữ số đầu tiên
-            right = x % 10        # chữ số cuối cùng
-            if left != right:
-                return False
+        # Với số chẵn: x == reversed_half
+        # Với số lẻ: x == reversed_half // 10 (bỏ số giữa)
+        return x == reversed_half or x == reversed_half // 10
 
-            x = (x % div) // 10   # loại bỏ chữ số đầu và cuối
-            div = div // 100      # chia cho 100 vì bỏ 2 chữ số
-
-        return True
 print(Solution().isPalindrome(121))  # True
