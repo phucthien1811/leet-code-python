@@ -11,4 +11,4 @@ def longestCommonPrefix(strs):
                 return ""
     
     return prefix
-print(longestCommonPrefix(["flower", "flow", "flight"]))  # Output: "fl"
+print(longestCommonPrefix(["flower", "flow", "flightffasd"]))  # Output: "fl"
